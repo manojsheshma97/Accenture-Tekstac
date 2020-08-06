@@ -1,0 +1,94 @@
+<!-- This is a partial code. Implement the neccessary codes -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1{
+                font-style:italic;
+                font-weight:bold;
+                text-align:center;
+                color:#b03060;
+            }
+            table{
+                margin-left: 35%;
+                border-width:30%;
+                padding:10px;
+                border:5px solid black;
+                border-collapse: collapse;
+            }
+            tr{
+                text-align: left;
+            }
+            td{
+                padding: 10px;
+                border:2px solid black;
+            }
+            #submit{
+                margin-left:45%;
+            }
+            div{
+                text-align:center;
+                font-weight:bold;
+            }
+            #result{
+                font-style:italic;
+                font-weight: bold;
+                text-align: center;
+                color:#FF0000;
+                font-size:40px;
+            }
+            #discount{
+                font-size:25px;
+                font-weight: bold;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body style="background-color:#99FFFF;">
+        <h1>DISCOUNT PRICE</h1>
+        <form onsubmit="return calculate()">
+            <table>
+                <tr>
+                    <td>Product Name</td>
+                    <td><input type="text" name="name" required pattern="[a-Z\s]"></td>
+                </tr>
+                <tr>
+                    <td>Product Price</td>
+                    <td><input type="number" name="price" min="15001" required></td>
+                </tr>
+                <tr>
+                    <td>Season</td>
+                    <td><select name="season" id="season">
+                        <option value="summer">SUMMER SALE</option>
+                        <option value="newyear">NEW YEAR SALE</option>
+                        <option value="clearance">CLEARANCE SALE</option>
+                    </select></td>
+                </tr>
+            </table><br>
+            <input type="submit" value="GET DISCOUNT PRICE" id="submit">
+        </form><br>
+        <div id="discount"></div>
+        <div id="result"></div>
+        <script>
+        
+            function calculate(){
+                var season = document.getElementById("season").value;
+                var price = document.getElementsByTagName("input").price.value;
+                var dis=0;
+                if(season=="summer"){
+                    dis=0.10;
+                }
+                else if(season=="newyear"){
+                    dis=0.05;
+                }
+                else{
+                    dis=0.15;
+                }
+                price = price - (dis*price);
+                document.getElementById("discount").innerHTML="The discount is "+dis*100+"%";
+                document.getElementById("result").innerHTML="The discounted price : Rs "+price;
+                return false;
+            }
+        </script>
+    </body>
+</html>
