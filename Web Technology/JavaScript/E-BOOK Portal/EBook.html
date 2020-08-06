@@ -1,0 +1,130 @@
+<!-- This is a partial code. Implement the neccessary codes -->
+<html>
+    <style>
+        body{
+            background-color:#e6e6fa;
+        }
+        #discounttable{
+            border-style:solid;
+            float:right;
+        }
+        h1{
+            color:#800080;
+            font-family:cursive;
+            text-align:center;
+        }
+        h2{
+            text-align:center;
+        }
+    </style>
+    <script>
+        function fun1(){
+            var quantity=document.getElementById("bookval").value;
+            var discount=0;
+            if(document.getElementById("sci").checked){
+                if(quantity<=250){
+                    discount=5;
+                }
+                else if(quantity>250){
+                    discount=7;
+                }
+                document.getElementById("result").innerHTML="Total Price is:"+(1-(discount/100))*(400*quantity);
+            }
+            else{
+                if(quantity<=250){
+                    discount=3;
+                }
+                else if(quantity>250){
+                    discount=4;
+                }
+                document.getElementById("result").innerHTML="Total Price is:"+(1-(discount/100))*(300*quantity);
+            }
+            return false;
+        }
+    </script>
+    <body>
+        <h1>E-BOOK GRAND SALE</h1>
+        <form onsubmit="return fun1()">
+            <table>
+                <tr>
+                    <td>Customer Name</td>
+                    <td><input type="text" name="customerName" pattern="([A-Za-z]|\s)+" placeholder="Enter the Customer Name"></td>
+                </tr>
+                <tr>
+                    <td>Email ID</td>
+                    <td><input type="email" name="mail" ></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td><input type="tel" name="customerMobileNumber" pattern="[98][0-9]{9}" placeholder="Enter the Mobile Number" ></td>
+                </tr>
+                <tr>
+                    <td>
+                        Book Category
+                    </td>
+                    <td>
+                        <input type="radio" name="bookCategory" value="Science" id="sci" required>Science
+                        <input type="radio" name="bookCategory" value="Comics" id="com">Comics
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>
+                        <input type="text" name="bookType" list="bookTypes" autocomplete="on" >
+                        <datalist id="bookTypes" name="bookTypes">
+                            <option value="Weekly">Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Fortnightly">Fortnightly</option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No of Books Required</td>
+                    <td><input type="range" name="bookCount" id="bookval" min="1" max="500" value=1>
+                    <output name="x"></output></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="Calculate Total Price" onclick=""></td>
+                    <td><input type="reset" name="reset" value="Reset"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="result"></div>
+                    </td>
+                </tr>
+            </table>
+            <h2>Discount Rate Chart</h2>
+            <table border="1" id="discounttable">
+                <tr>
+                    <th>Book Type</th>
+                    <th>
+                        per Book Cost
+                    </th>
+                    <th>
+                        Discount Rate(in percentage)
+                    </th>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>400</td>
+                    <td>5% if total book count <= 250</td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>400</td>
+                    <td>7% if total book count > 250</td>
+                </tr>
+                <tr>
+                    <td>Comics</td>
+                    <td>300</td>
+                    <td>3% if total book count <= 250</td>
+                </tr>
+                <tr>
+                    <td>Comics</td>
+                    <td>300</td>
+                    <td>4% if total book count > 250</td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
