@@ -1,0 +1,19 @@
+<!-- This is a partial code. Implement the neccessary codes -->
+<html>
+    <head>
+        <title>resize.html</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            var x=0;
+            $(document).ready(function(){
+                $(window).resize(function(){
+                    $("span").text(x++);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p id="resize">Window resized <span>0</span> times.</p>
+        <p id="test">Try resizing your browser window.</p>
+    </body>
+</html>
