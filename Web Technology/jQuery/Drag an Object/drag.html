@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#draggable").click(function(){
+                    $(this).draggable();
+                });
+            });
+        </script>
+        
+        </head>
+        <body>
+            <div id="draggable" class="ui-widget-content">
+                <img src="fish.jpg" alt="">
+                <p>Drag me around</p>
+            </div>
+        </body>
+</html>
